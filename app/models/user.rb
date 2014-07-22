@@ -11,20 +11,30 @@
 #
 
 class User < ActiveRecord::Base
-	attr_reader :password
+  attr_reader :password
 
   validates :username, :password_digest, presence: true
-	validates :password, length: { minimum: 6, allow_nil: true }
-	validates :token, presence: true, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :token, presence: true, uniqueness: true
   validates :username, uniqueness: true
 
   before_validation :ensure_session_token
 
-	def reset_token!
-		self.token = SecureRandom::urlsafe_base64(16)
-		self.save!
-		self.token
-	end
+  has_many :board_assignments, inverse_of: :user
+  has_many :boards,
+    through: :board_assignments,
+    source: :board,
+    inverse_of: :members
+
+  
+
+
+
+  def reset_token!
+    self.token = SecureRandom::urlsafe_base64(16)
+    self.save!
+    self.token
+  end
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
