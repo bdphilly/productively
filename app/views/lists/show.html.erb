@@ -1,5 +1,14 @@
 <h1>Fancy that, this is your list!</h1>
 <br>
-<%= @list.title %>
+Title: <%= @list.title %>
+<br>
+<% @list.cards.each do |card| %>
+  <%= card.title %>
+  <br>
+<% end %>
+
+
+<br>
+<%= link_to "new card for this list!", new_list_card_url(@list) %>
 <br>
 <%= link_to "back to board", board_url(@list.board_id) %>

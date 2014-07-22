@@ -13,9 +13,8 @@ class ListsController < ApplicationController
 	end
 
 	def create
-		@list = List.new(list_params)
+		@list = Board.find(params[:board_id]).lists.new(list_params)
 		@list.rank = 1
-		@list.board_id = params[:board_id]
 		if @list.save
 			redirect_to board_list_url(params[:board_id], @list)
 		else

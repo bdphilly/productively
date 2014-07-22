@@ -1,12 +1,11 @@
 <h1>Fancy that, this is your board!</h1>
 <br>
-<%= @board.title %>
-
-
-<br>
+Board Title: <%= @board.title %>
+<br><br>
 LISTS!
+<br><br>
 <% @board.lists.each do |list| %>
-  <%= list.title %>
+  <%= link_to list.title, list_url(list.id) %>
   <br>
 <% end %>
 
