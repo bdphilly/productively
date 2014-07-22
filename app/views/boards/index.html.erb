@@ -2,6 +2,7 @@
 
 <% @boards.all.each do |board| %>
 	<h2><%= board.title %></h2>
+  <%= link_to "check it out!", board_url(board.id) %>
 <% end %>
 
 <%= link_to "Build a board", new_board_url %>

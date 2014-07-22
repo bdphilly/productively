@@ -1,3 +1,16 @@
 <h1>Fancy that, this is your board!</h1>
 <br>
 <%= @board.title %>
+
+
+<br>
+LISTS!
+<% @board.lists.each do |list| %>
+  <%= list.title %>
+  <br>
+<% end %>
+
+<br>
+<%= link_to "New list for this board!", new_board_list_url(@board) %>
+<br>
+<%= link_to "All boards!", boards_url %>
