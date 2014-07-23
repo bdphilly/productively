@@ -14,11 +14,11 @@ Rails.application.routes.draw do
 
   resource :session
   resources :users
-  resources :boards do 
-    resources :lists
-  end
+  # resources :boards do 
+  #   resources :lists
+  # end
 
-  resources :lists do 
-    resources :cards
-  end
+  # resources :lists do 
+  #   resources :cards
+  # end
 end
