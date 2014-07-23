@@ -3,23 +3,27 @@
 # Table name: boards
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
+#  title      :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer          not null
 #
 
 class Board < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, :user, presence: true
 
-  has_many :board_assignments, inverse_of: :board
-  has_many :cards, through: :lists
+  belongs_to :user
+  has_many :board_memberships, inverse_of: :board
   has_many :lists, dependent: :destroy
+  has_many :cards, through: :lists
+  
   has_many :members,
-    through: :board_assignments,
+    through: :board_memberships,
     source: :user,
     inverse_of: :boards
 
-  def self.for_member(user)
-    joins(:board_assignments).where("board_assignments.user_id = ?", user.id)
+  def is_member?(user)
+    return true if user.id == self.user_id
+    board_membership.where(user_id: user.id).exists?
   end
 end

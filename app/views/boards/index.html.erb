@@ -1,6 +1,6 @@
 <h1>The Boards Index, yea!</h1>
 
-<% @boards.all.each do |board| %>
+<% @boards.each do |board| %>
 	<h2><%= link_to board.title, board_url(board.id) %></h2>
   
 <% end %>

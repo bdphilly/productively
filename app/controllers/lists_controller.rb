@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+	before_action :ensure_signed_in!
+
 	def index
 		@lists = Board.find(params[:board_id]).lists
 		render :index

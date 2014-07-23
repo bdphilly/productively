@@ -1,6 +1,8 @@
 <h1>Fancy that, this is your board!</h1>
 <br>
 Board Title: <%= @board.title %>
+<br>
+<%= button_to "Delete Board!", board_url(@board), method: 'delete' %>
 <br><br>
 LISTS!
 <br><br>

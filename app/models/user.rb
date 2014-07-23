@@ -2,33 +2,30 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  username   :string(255)
-#  password   :string(255)
-#  token      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  username        :string(255)      not null
+#  password_digest :string(255)      not null
+#  token           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 
 class User < ActiveRecord::Base
   attr_reader :password
+  before_validation :ensure_session_token
 
   validates :username, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :token, presence: true, uniqueness: true
   validates :username, uniqueness: true
 
-  before_validation :ensure_session_token
+  has_many :boards
+  has_many :board_memberships, inverse_of: :user
 
-  has_many :board_assignments, inverse_of: :user
-  has_many :boards,
-    through: :board_assignments,
-    source: :board,
-    inverse_of: :members
-
-  
-
-
+  # has_many :boards,
+  #   through: :board_assignments,
+  #   source: :board,
+  #   inverse_of: :members
 
   def reset_token!
     self.token = SecureRandom::urlsafe_base64(16)

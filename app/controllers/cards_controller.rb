@@ -1,4 +1,6 @@
 class CardsController < ApplicationController
+	before_action :ensure_signed_in!
+
 	def index
 		@cards = List.find(params[:list_id]).cards
 		render :index
