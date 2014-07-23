@@ -1,14 +1,13 @@
 module Api
   class ListsController < ApiController
-
     def index
       @lists = Board.find(params[:board_id]).lists
-      render :index
+      render json: @lists
     end
 
     def show
       @list = List.find(params[:id])
-      render partial: 'api/lists/list', locals: { list: @list }
+      render json: @list
     end
 
     def new

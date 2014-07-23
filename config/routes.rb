@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'boards#index'
+
   namespace :api, defaults: { format: :json } do
     resources :boards, except: [:new, :edit] do
       resources :lists, only: [:index, :show, :create, :update, :destroy]
@@ -9,16 +11,16 @@ Rails.application.routes.draw do
     end
   end
 
+  
 
-  root 'boards#index'
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :destroy]
 
-  resource :session
-  resources :users
-  # resources :boards do 
-  #   resources :lists
-  # end
+  resources :boards do 
+    resources :lists
+  end
 
-  # resources :lists do 
-  #   resources :cards
-  # end
+  resources :lists do 
+    resources :cards
+  end
 end

@@ -1,14 +1,14 @@
 module Api
 	class BoardsController < ApiController
 		def index
-			@boards = Board.all
-			render json: @boards
+			@boards = current_user.boards.includes(:lists, :cards)
+			render :index
 		end
 
 		def show
 			@board = Board.includes(:members, :lists, :cards).find(params[:id])
 			if @board.is_member?(current_user)
-				render :show
+				render json: @board
 			else
 				render json: ["You aren't a member of this board"], status: 403
 			end
