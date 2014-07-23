@@ -3,7 +3,7 @@
 Title: <%= @list.title %>
 <br>
 <% @list.cards.each do |card| %>
-  <%= card.title %>
+  <%= link_to card.title, list_card_url(card.list_id, card.id) %>
   <br>
 <% end %>
 

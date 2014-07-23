@@ -23,6 +23,21 @@ class ListsController < ApplicationController
 		end
 	end
 
+	def edit
+		@list = List.find(params[:id])
+	end
+
+	def update
+		@list = List.find(params[:id])
+
+		if @list.update_attributes(list_params)
+			redirect_to board_list_url(@list.board_id, @list)
+		else
+			flash.now[:errors] = @list.errors.full_messages
+			render :edit
+		end
+	end
+
 	private
 
 	def list_params

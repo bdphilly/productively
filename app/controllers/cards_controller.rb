@@ -23,6 +23,20 @@ class CardsController < ApplicationController
 		end
 	end
 
+	def edit
+		@card = Card.find(params[:id])
+	end
+
+	def update
+		@card = Card.find(params[:id])
+		if @card.update_attributes(card_params)
+			redirect_to list_card_url(@card.list_id, @card)
+		else
+			flash.now[:errors] = @card.errors.full_messages
+			render :edit
+		end
+	end
+
 
 	private
 
