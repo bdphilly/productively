@@ -36,7 +36,7 @@ group :development do
   gem "binding_of_caller"
 end
 
-
+gem 'backbone-on-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -45,5 +45,5 @@ end
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 

@@ -20,7 +20,10 @@ module Api
 		end
 
 		def create
+			fail
+			puts current_user
 			@board = current_user.boards.new(board_params)
+			
 			if @board.save
 				render json: @board
 			else
