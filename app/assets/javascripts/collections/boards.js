@@ -1,7 +1,7 @@
-Tasktime.Collections.Boards = Backbone.Collections.extend ({
+Tasktime.Collections.Boards = Backbone.Collection.extend ({
   model: Tasktime.Models.Board,
 
-  url: 'api/boards',
+  url: "api/boards",
 
   getOrFetch: function (id) {
     var boards = this;

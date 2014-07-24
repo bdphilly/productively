@@ -10,7 +10,7 @@ Tasktime.Collections.Lists = Backbone.Collection.extend ({
   },
 
   comparator: function (list) {
-    return list.get('rank');
+    list.get('rank');
   },
 
   getOrFetch: function (id) {

@@ -1,5 +1,5 @@
 Tasktime.Models.Board = Backbone.Model.extend = ({
-  urlRoot = 'api/boards',
+  urlRoot: "api/boards",
 
   parse: function (jsonResp) {
     if (jsonResp.lists) {

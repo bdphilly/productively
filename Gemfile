@@ -37,6 +37,7 @@ group :development do
 end
 
 gem 'backbone-on-rails'
+gem 'annotate'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -4,10 +4,10 @@ window.Tasktime = {
   Views: {},
   Routers: {},
   initialize: function () {
-    Tasktime.Routers.router = new Tasktime.Routers.router({
+    Tasktime.Routers.router = new Tasktime.Routers.Router({
       $rootEl: $("#content") 
     });
-    Tasktime.Collections.boards = new Tasktime.Collections.Boards();
+    Tasktime.Collections.boards = new Tasktime.Collections.Boards;
     Backbone.history.start();
   }
 };
@@ -66,5 +66,5 @@ Backbone.CompositeView = Backbone.View.extend ({
 });
 
 $(document).ready(function () {
-  Trellino.initialize();
+  Tasktime.initialize();
 });
