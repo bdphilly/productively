@@ -1,6 +1,9 @@
 Productively.Routers.Router = Backbone.Router.extend ({
-  initialize: function (options) {
-    this.$rootEl = options.$rootEl;
+  initialize: function () {
+    var dropDownView = new Productively.Views.DropDownView({
+      collection: Productively.Collections.boards
+    });
+    $('#add-dropdown').append(dropDownView.render().$el);
   },
 
   routes: {
@@ -17,7 +20,7 @@ Productively.Routers.Router = Backbone.Router.extend ({
 
   _swapView: function(newView) {
     this._currentView && this._currentView.remove();
-    this.$rootEl.html(newView.render().$el);
     this._currentView = newView;
+    $('#content').html(newView.render().$el);
   },
 });
