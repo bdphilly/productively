@@ -1,4 +1,4 @@
 module Api
-	class BoardMembershipsController < ApiController
-	end
+  class BoardMembershipsController < ApiController
+  end
 end

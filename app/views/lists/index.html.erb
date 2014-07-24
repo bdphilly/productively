@@ -1,7 +1,0 @@
-<h1>The List Index, yea!</h1>
-
-<% @lists.all.each do |list| %>
-	<h2><%= list.title %></h2>
-<% end %>
-
-<%= link_to "Build a list", new_board_list_url(@board) %>

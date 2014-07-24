@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tasktime</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <title>Productively</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render './layouts/navbar' %>
-<%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
-
-<%= yield %>
-
+  <%= render partial: "layouts/header" %>
+  <%= yield %>
 </body>
 </html>

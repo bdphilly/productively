@@ -1,7 +1,0 @@
-<h1>The Cards Index, yea!</h1>
-
-<% @cards.all.each do |card| %>
-	<h2><%= card.title %></h2>
-  <%= link_to "check it out!", list_card_url(card.id) %>
-<% end %>
-

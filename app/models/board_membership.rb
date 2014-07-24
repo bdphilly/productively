@@ -3,8 +3,8 @@
 # Table name: board_memberships
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  board_id   :integer
+#  user_id    :integer          not null
+#  board_id   :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
 #

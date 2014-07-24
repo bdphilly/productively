@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: tasktime_development
+  database: productively_development
   pool: 5
   password:
   host: localhost
@@ -9,12 +9,12 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: tasktime_test
+  database: productively_test
   pool: 5
   host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: tasktime_production
+  database: productively_production
   pool: 5

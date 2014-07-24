@@ -1,26 +1,16 @@
-Rails.application.routes.draw do
-
+Productively::Application.routes.draw do
   root to: 'static_pages#root'
 
+  resources :users
+  resource :session
+
   namespace :api, defaults: { format: :json } do
-    resources :boards do
-      resources :lists, only: [:index, :show, :create, :update, :destroy]
-    end
-    resources :lists, only: [:show, :update, :destroy] do
-      resources :cards, only: [:create, :index, :destroy]
-    end
-  end
+    resources :boards, except: [:new, :edit]
+    resources :lists, only: [:create, :update, :destroy]
+    resources :cards, only: [:create, :update, :destroy]
 
-  
-
-  resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :destroy]
-
-  resources :boards do 
-    resources :lists
-  end
-
-  resources :lists do 
-    resources :cards
+    # resources :items
+    # resources :board_memberships
+    # resources :card_assignments
   end
 end
