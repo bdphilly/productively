@@ -13,7 +13,6 @@ Productively.Views.ListForm = Backbone.CompositeView.extend ({
 
   create: function (event) {
     event.preventDefault();
-    debugger
     this.collection.create({
       title: this.$('#title').val(),
       board_id: this.collection.board.id,
