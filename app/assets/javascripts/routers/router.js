@@ -7,7 +7,8 @@ Productively.Routers.Router = Backbone.Router.extend ({
   },
 
   routes: {
-    "": "boardsIndex", 
+    "": "boardsIndex",
+    "boards/:id": "boardShow" 
   },
 
   boardsIndex: function () {
@@ -16,6 +17,14 @@ Productively.Routers.Router = Backbone.Router.extend ({
       collection: Productively.Collections.boards
     });
     this._swapView(indexView);
+  },
+
+  boardShow: function (id) {
+    var board = Productively.Collections.boards.getOrFetch(id);
+    var showView = new Productively.Views.BoardShow({
+      model: board
+    });
+    this._swapView(showView);
   },
 
   _swapView: function(newView) {
