@@ -5,9 +5,7 @@ Productively.Collections.Cards = Backbone.Collection.extend ({
     this.list = options.list;
   },
 
-  url: function () {
-    return 'api/lists/' + this.list.id;
-  },
+  url: 'api/cards',
 
   getOrFetch: function (id) {
     var cards = this;
