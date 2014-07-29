@@ -8,7 +8,9 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     'click .delete-list': 'destroyList',
     'mouseover .panel': 'showDeleteButton',
     'mouseleave .panel': 'hideDeleteButton',
-    'sortstop': 'updateRanks'
+    'sortreceive': 'receiveCard',
+    // 'sortremove': 'moveCard',
+    'sortstop': 'updateRanks',
   },
 
   initialize: function () {
@@ -61,6 +63,22 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     this.addSubview('.cards', view);
   },
 
+  receiveCard: function (event, ui) {
+    var cardId = ui.item.attr('id').split('-')[1];
+    var cardIndex = ui.item.index() - .1;
+    debugger
+    var cardClone = new Productively.Models.Card({
+      id: cardId,
+      ord: cardIndex,
+      list_id: this.model.id
+    });
+    cardClone.save();
+    this.model.collection.add(cardClone, { 
+      silent: true 
+    });
+
+  },
+
   removeCard: function (card) {
     var subview = _.find(
       this.subviews(".cards"),
@@ -70,6 +88,12 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     );
 
     this.removeSubview(".cards", subview);
+  },
+
+  moveCard: function (event, ui) {
+    var cardId = ui.item.attr('id').split('-')[1];
+    var cardToRemove = this.model.cards().get(cardId);
+    this.model.cards().remove(cardToRemove);
   },
 
   renderCardForm: function () {
