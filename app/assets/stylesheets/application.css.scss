@@ -79,3 +79,7 @@ li {
 .delete-card:hover {
   background: red;
 }
+
+.delete-card {
+  visibility: hidden;
+}

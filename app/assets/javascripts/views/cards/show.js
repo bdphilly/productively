@@ -3,6 +3,8 @@ Productively.Views.CardShow = Backbone.View.extend({
 
   events: {
     'click button.delete-card': 'destroyCard',
+    'mouseover .panel-card': 'showDeleteButton',
+    'mouseleave .panel-card': 'hideDeleteButton',
   },
 
   id: function () {
@@ -20,6 +22,18 @@ Productively.Views.CardShow = Backbone.View.extend({
 
     this.$el.html(content);
     return this;
+  },
+
+  showDeleteButton: function (event) {
+    event.preventDefault();
+    // debugger
+    $(event.target).find('.delete-card').css('visibility', 'visible');
+  },
+
+  hideDeleteButton: function (event) {
+    event.preventDefault();
+    // debugger
+    $(event.target).find('.delete-card').css('visibility', 'hidden');
   },
 
   destroyCard: function () {
