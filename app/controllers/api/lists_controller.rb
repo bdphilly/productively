@@ -1,6 +1,6 @@
 module Api
   class ListsController < ApiController
-    before_action :require_board_member!
+    # before_action :require_board_member!
 
     def index
       @lists = List.all

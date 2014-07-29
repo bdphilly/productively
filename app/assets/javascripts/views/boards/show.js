@@ -14,14 +14,36 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
       board: this.model
     });
     this.$el.html(content);
+    this.renderLists();
     globalview = this;
+    this.updateRanks();
     return this;
   },
 
   renderLists: function () {
+    var that = this;
+
     this.model.lists().each(this.addList.bind(this));
     this.$('.inner-list').sortable({
-      connectWith: '.inner-list'
+      connectWith: '.inner-list',
+
+      update: function (event, ui) {
+        console.log(event.target);
+        var listIdArray = $(event.target).sortable('toArray', { 
+          attribute: 'id' 
+        });
+        that.updateRanks(listIdArray);
+      },
+    });
+  },
+
+  updateRanks: function (listIdArray) {
+    var that = this;
+    var rank = 0;
+    _.each(listIdArray, function (id) {
+      var list = that.model.lists().get(id);
+      list.save({ 'ord': rank });
+      rank ++;
     });
   },
 

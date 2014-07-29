@@ -11,16 +11,21 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    // this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.cards(), 'add', this.addCard);
     this.listenTo(this.model.cards(), 'remove', this.removeCard);
+  },
+
+  attributes: function () {
+    return {
+      id: this.model.id,
+    }
   },
 
   render: function () {
     var content = this.template({
       list: this.model
     });
-
     this.$el.html(content);
     this.renderCards();
     return this;
