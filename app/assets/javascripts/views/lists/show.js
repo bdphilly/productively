@@ -3,10 +3,15 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
 
   className: 'list-container',
 
+  events: {
+    'click .add-a-card': 'showForm',
+    'click .delete-list': 'destroyList',
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.cards(), 'add', this.addCard);
-    this.listenTo(this.model.cards(), 'remove', this.removeCard)
+    this.listenTo(this.model.cards(), 'remove', this.removeCard);
   },
 
   render: function () {
@@ -16,8 +21,6 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
 
     this.$el.html(content);
     this.renderCards();
-    this.renderCardForm();
-    this.showForm();
     return this;
   },
 
@@ -51,12 +54,15 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     this.addSubview('.card-form', view);
   },
 
-  showForm: function () {
-    $('.add-a-card').click(function (event) {
-      event.preventDefault();
-      var data = event.target.dataset.id
-      $('#form-' + data.split('-')[1]).show()
-    });
+  showForm: function (event) {
+    event.preventDefault();
+    $(event.target).toggle();
+    this.renderCardForm();
+  },
+
+  destroyList: function (event) {
+    event.preventDefault();
+    this.model.destroy();
   },
 
 });

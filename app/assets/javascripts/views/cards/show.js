@@ -39,13 +39,7 @@ Productively.Views.CardShow = Backbone.View.extend({
   destroyCard: function () {
     event.preventDefault()
     
-    this.model.destroy({
-      succcess: function () {
-        alert('gone!');
-      }
-    });
+    this.model.destroy();
   },
-
-
 
 });

@@ -1,7 +1,18 @@
-Title: <%= list.escape('title') %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title list-title"><%= list.escape('title') %>
+
+    <button type="button" class="delete-list">
+      <span class="glyphicon glyphicon-trash" style="font-size: 16px"></span>
+    </button>
+
+    </div>
+  </div>
+</div>
+
 
 <div class="cards"></div>
 
-  <a class="add-a-card" data-id="list-<%= list.get('id') %>" href="#">Add a card...</a>
+  <a class="add-a-card" href="#">Add a card...</a>
 
 <div class="card-form"></div>

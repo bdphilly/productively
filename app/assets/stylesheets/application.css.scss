@@ -39,7 +39,7 @@ li {
   position: relative;
 }
 
-#outer-list {
+.outer-list {
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -57,11 +57,11 @@ li {
   position: relative;
 }
 
-#inner-list {
+.inner-list {
   width: 5000px;
 }
 
-#add-a-card {
+.add-a-card {
   color: blue;
 }
 
@@ -83,3 +83,14 @@ li {
 .delete-card {
   visibility: hidden;
 }
+
+.delete-list {
+  float: right;
+  border-radius: 10px;
+  border: thin white solid;
+}
+
+.delete-list:hover {
+  background: red;
+}
+
