@@ -18,5 +18,4 @@ class List < ActiveRecord::Base
 
   default_scope { order(:ord) }
 
-  # TODO: class method for updating orders?
 end

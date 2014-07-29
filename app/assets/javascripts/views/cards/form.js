@@ -21,7 +21,8 @@ Productively.Views.CardForm = Backbone.CompositeView.extend({
     event.preventDefault();
     this.collection.create({
       title: this.$('.title').val(),
-      list_id: this.collection.list.id
+      list_id: this.collection.list.id,
+      ord: this.collection.models.length,
     }, { wait: true });
     this.$('.title').val('');
     this.$('.title').focus();

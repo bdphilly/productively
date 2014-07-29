@@ -12,7 +12,7 @@ Productively.Views.CardShow = Backbone.CompositeView.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync remove', this.render);
+    // this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {

@@ -1,11 +1,13 @@
 Productively.Collections.Lists = Backbone.Collection.extend ({
   model: Productively.Models.List,
 
+  comparator: 'ord',
+
+  url: 'api/lists',
+
   initialize: function (models, options) {
     this.board = options.board;
   },
-
-  url: 'api/lists',
 
   getOrFetch: function (id) {
     var lists = this;

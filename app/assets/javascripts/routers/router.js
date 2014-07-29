@@ -1,9 +1,9 @@
 Productively.Routers.Router = Backbone.Router.extend ({
   initialize: function () {
-    var dropDownView = new Productively.Views.DropDownView({
-      collection: Productively.Collections.boards
-    });
-    $('#add-dropdown').append(dropDownView.render().$el);
+    // var dropDownView = new Productively.Views.DropDownView({
+      // collection: Productively.Collections.boards
+    // });
+    // $('#add-dropdown').append(dropDownView.render().$el);
   },
 
   routes: {
