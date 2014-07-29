@@ -4,17 +4,35 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
   className: 'list',
 
   initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.renderListForm);
+    
     this.listenTo(this.model.lists(), 'add', this.addList);
     this.listenTo(this.model.lists(), 'remove', this.removeList);
   },
 
   render: function () {
+    //Temporary hack to deal with the zombie subviews
+    if (this.subviews('.inner-list').length > 0) {
+      debugger
+      var that = this;
+      var subviews = that.subviews('.inner-list')
+      for (var i = 0; i < subviews.length; i++) {
+        console.log(subviews[i]);
+        this.removeSubview('.inner-list', subviews[i])
+      }
+      if (subviews.length == 1) {
+        debugger
+        this.removeSubview('.inner-list', subviews[0])
+      }
+    }
+
     var content = this.template({
       board: this.model
     });
     this.$el.html(content);
     this.renderLists();
+    this.attachSubviews();
     globalview = this;
     return this;
   },
