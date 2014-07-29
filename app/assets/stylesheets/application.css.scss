@@ -63,6 +63,9 @@ li {
 
 .add-a-card {
   color: blue;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  display: inline-block;
 }
 
 .panel-card {
@@ -85,6 +88,7 @@ li {
 }
 
 .delete-list {
+  visibility: hidden;
   float: right;
   border-radius: 10px;
   border: thin white solid;
@@ -94,3 +98,10 @@ li {
   background: red;
 }
 
+.card-form {
+  margin-left: 10px;
+}
+
+.btn-primary {
+  margin-left: 10px;
+}

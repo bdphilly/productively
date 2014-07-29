@@ -1,4 +1,4 @@
-Productively.Views.CardShow = Backbone.View.extend({
+Productively.Views.CardShow = Backbone.CompositeView.extend({
   template: JST['cards/show'],
 
   events: {
@@ -26,19 +26,16 @@ Productively.Views.CardShow = Backbone.View.extend({
 
   showDeleteButton: function (event) {
     event.preventDefault();
-    // debugger
     $(event.target).find('.delete-card').css('visibility', 'visible');
   },
 
   hideDeleteButton: function (event) {
     event.preventDefault();
-    // debugger
     $(event.target).find('.delete-card').css('visibility', 'hidden');
   },
 
   destroyCard: function () {
     event.preventDefault()
-    
     this.model.destroy();
   },
 

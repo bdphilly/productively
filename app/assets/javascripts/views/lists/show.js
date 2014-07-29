@@ -6,6 +6,8 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   events: {
     'click .add-a-card': 'showForm',
     'click .delete-list': 'destroyList',
+    'mouseover .panel': 'showDeleteButton',
+    'mouseleave .panel': 'hideDeleteButton',
   },
 
   initialize: function () {
@@ -43,7 +45,7 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
       }
     );
 
-    this.removeSubview(".lists", subview);
+    this.removeSubview(".cards", subview);
   },
 
   renderCardForm: function () {
@@ -58,6 +60,16 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     event.preventDefault();
     $(event.target).toggle();
     this.renderCardForm();
+  },
+
+  showDeleteButton: function (event) {
+    event.preventDefault();
+    $(event.target).find('.delete-list').css('visibility', 'visible');
+  },
+
+  hideDeleteButton: function (event) {
+    event.preventDefault();
+    $(event.target).find('.delete-list').css('visibility', 'hidden');
   },
 
   destroyList: function (event) {

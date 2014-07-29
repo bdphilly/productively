@@ -1,4 +1,4 @@
-Productively.Views.CardForm = Backbone.View.extend({
+Productively.Views.CardForm = Backbone.CompositeView.extend({
   template: JST['cards/form'],
 
   className: 'new-card-form',
@@ -22,9 +22,8 @@ Productively.Views.CardForm = Backbone.View.extend({
     this.collection.create({
       title: this.$('.title').val(),
       list_id: this.collection.list.id
-    });
+    }, { wait: true });
     this.$('.title').val('');
     this.$('.title').focus();
-    // this.$el.hide();
-  }
+  },
 });

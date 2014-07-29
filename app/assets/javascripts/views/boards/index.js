@@ -1,4 +1,4 @@
-Productively.Views.BoardsIndex = Backbone.View.extend ({
+Productively.Views.BoardsIndex = Backbone.CompositeView.extend ({
   template: JST['boards/index'],
 
   initialize: function () {
