@@ -1,6 +1,10 @@
 module Api
   class CardsController < ApiController
-    before_action :require_board_member!
+    # before_action :require_board_member!
+
+    def index
+      render json: Card.all
+    end
 
     def create
       @card = current_list.cards.new(card_params)
@@ -16,6 +20,16 @@ module Api
       @card = Card.find(params[:id])
       @card.destroy
       render json: {}
+    end
+
+    def update
+      @card = current_list.cards.find(params[:id])
+      
+      if @card.update_attributes(card_params)
+        render json: @card
+      else
+        render json: @list.errors.full_messages, status: :unprocessable_entity
+      end
     end
 
     private
@@ -34,7 +48,7 @@ module Api
     end
 
     def card_params
-      params.require(:card).permit(:title, :list_id)
+      params.require(:card).permit(:title, :list_id, :ord)
     end
   end
 end

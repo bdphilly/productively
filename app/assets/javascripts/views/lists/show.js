@@ -8,6 +8,7 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     'click .delete-list': 'destroyList',
     'mouseover .panel': 'showDeleteButton',
     'mouseleave .panel': 'hideDeleteButton',
+    'sortstop': 'updateRanks'
   },
 
   initialize: function () {
@@ -16,10 +17,8 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     this.listenTo(this.model.cards(), 'remove', this.removeCard);
   },
 
-  attributes: function () {
-    return {
-      id: this.model.id,
-    }
+  id: function () {
+    return 'list-' + this.model.id;
   },
 
   render: function () {
@@ -32,9 +31,26 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   },
 
   renderCards: function () {
+    var that = this;
+
     this.model.cards().each(this.addCard.bind(this));
     $('.cards').sortable({
       connectWith: '.cards'
+    });
+  },
+
+  updateRanks: function (event) {
+    var that = this;
+    var cardIdArray = $(event.target).sortable('toArray', {
+      attribute: 'id'
+    });
+    var rank = 0;
+
+    _.each(cardIdArray, function (cardId) {
+      var id = cardId.split('-')[1];
+      var card = that.model.cards().get(id);
+      card.save({ 'ord': rank });
+      rank ++;
     });
   },
 

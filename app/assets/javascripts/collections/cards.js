@@ -1,11 +1,13 @@
 Productively.Collections.Cards = Backbone.Collection.extend ({
   model: Productively.Models.Card,
 
+  url: 'api/cards',
+
+  comparator: 'ord',
+  
   initialize: function (models, options) {
     this.list = options.list;
   },
-
-  url: 'api/cards',
 
   getOrFetch: function (id) {
     var cards = this;

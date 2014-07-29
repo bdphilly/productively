@@ -16,7 +16,6 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
     this.$el.html(content);
     this.renderLists();
     globalview = this;
-    this.updateRanks();
     return this;
   },
 
@@ -32,6 +31,7 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
         var listIdArray = $(event.target).sortable('toArray', { 
           attribute: 'id' 
         });
+        console.log(listIdArray);
         that.updateRanks(listIdArray);
       },
     });
@@ -40,7 +40,8 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
   updateRanks: function (listIdArray) {
     var that = this;
     var rank = 0;
-    _.each(listIdArray, function (id) {
+    _.each(listIdArray, function (listId) {
+      var id = listId.split('-')[1];
       var list = that.model.lists().get(id);
       list.save({ 'ord': rank });
       rank ++;
