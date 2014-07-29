@@ -38,3 +38,34 @@ li {
   margin: 0 auto;
   position: relative;
 }
+
+#outer-list {
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.list-container {
+  border: 1px solid white;
+  background: grey;
+  border-radius: 5px;
+  width: 300px;
+  margin: 10px;
+  float: left;
+  display: inline-block;
+  position: relative;
+}
+
+#inner-list {
+  width: 5000px;
+}
+
+#add-a-card {
+  color: blue;
+}
+
+.panel-card {
+  background: #30E3FF;
+  border-radius: 15px;
+}

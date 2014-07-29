@@ -1,4 +1,7 @@
 Title: <%= list.escape('title') %>
 
 <div id="cards"></div>
-<div id="card-form"></div>
+
+  <a class="add-a-card" data-id="list-<%= list.get('id') %>" href="#">Add a card...</a>
+
+<div class="card-form"></div>

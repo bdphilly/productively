@@ -1,6 +1,8 @@
 Productively.Views.ListShow = Backbone.CompositeView.extend ({
   template: JST['lists/show'],
 
+  className: 'list-container',
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.cards(), 'add', this.addCard);
@@ -14,6 +16,7 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     this.$el.html(content);
     this.renderCards();
     this.renderCardForm();
+    this.showForm();
     return this;
   },
 
@@ -32,7 +35,15 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     var view = new Productively.Views.CardForm({
       collection: this.model.cards()
     });
-    this.addSubview('#card-form', view);
+    this.addSubview('.card-form', view);
   },
 
-})
+  showForm: function () {
+    $('.add-a-card').click(function (event) {
+      event.preventDefault();
+      var data = event.target.dataset.id
+      $('#form-' + data.split('-')[1]).show()
+    });
+  },
+
+});

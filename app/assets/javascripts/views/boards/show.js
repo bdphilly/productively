@@ -25,7 +25,7 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
     var view = new Productively.Views.ListShow({
       model: list
     })
-    this.addSubview('#lists', view);
+    this.addSubview('#inner-list', view);
   },
 
   renderListForm: function () {

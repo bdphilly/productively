@@ -1,6 +1,12 @@
 Productively.Views.CardForm = Backbone.View.extend({
   template: JST['cards/form'],
 
+  className: 'new-card-form',
+
+  id: function () {
+    return 'form-' + this.collection.list.id;
+  },
+
   events: {
     'submit': 'create',
   },
@@ -8,6 +14,7 @@ Productively.Views.CardForm = Backbone.View.extend({
   render: function () {
     var content = this.template;
     this.$el.html(content);
+    this.$el.hide();
     return this;
   },
 
@@ -19,5 +26,6 @@ Productively.Views.CardForm = Backbone.View.extend({
     });
     this.$('#title').val('');
     this.$('#title').focus();
+    // this.$el.hide();
   }
 });
