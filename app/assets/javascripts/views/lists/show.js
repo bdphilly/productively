@@ -66,7 +66,6 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   receiveCard: function (event, ui) {
     var cardId = ui.item.attr('id').split('-')[1];
     var cardIndex = ui.item.index() - .1;
-    debugger
     var cardClone = new Productively.Models.Card({
       id: cardId,
       ord: cardIndex,

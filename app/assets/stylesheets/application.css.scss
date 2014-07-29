@@ -57,6 +57,10 @@ li {
   position: relative;
 }
 
+.list-container {
+  cursor: move;
+}
+
 .inner-list {
   width: 5000px;
 }
@@ -71,6 +75,11 @@ li {
 .panel-card {
   background: #30E3FF;
   border-radius: 15px;
+}
+
+.panel-card:hover {
+  background: blue;
+  cursor: pointer;
 }
 
 .delete-card {
@@ -104,4 +113,25 @@ li {
 
 .btn-primary {
   margin-left: 10px;
+}
+
+.new-list-form {
+  display: none;
+}
+
+.new-list-title {
+  border-radius: 10px;
+  border: thin white solid;
+}
+
+.new-list-title:hover {
+  background: grey;
+  cursor: pointer;
+}
+
+.list-form-container {
+  margin-top: 20px;
+  width: 300px;
+  display: inline-block;
+  text-align: center;
 }
