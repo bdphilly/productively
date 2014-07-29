@@ -6,6 +6,7 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.cards(), 'add', this.addCard);
+    this.listenTo(this.model.cards(), 'remove', this.removeCard)
   },
 
   render: function () {
@@ -28,13 +29,25 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     var view = new Productively.Views.CardShow({
       model: card
     });
-    this.addSubview('#cards', view);
+    this.addSubview('.cards', view);
+  },
+
+  removeCard: function (card) {
+    var subview = _.find(
+      this.subviews(".cards"),
+      function (subview) {
+        return subview.model === card;
+      }
+    );
+
+    this.removeSubview(".lists", subview);
   },
 
   renderCardForm: function () {
     var view = new Productively.Views.CardForm({
       collection: this.model.cards()
     });
+
     this.addSubview('.card-form', view);
   },
 

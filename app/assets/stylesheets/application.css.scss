@@ -69,3 +69,13 @@ li {
   background: #30E3FF;
   border-radius: 15px;
 }
+
+.delete-card {
+  border-radius: 10px;
+  float: right;
+  border: thin white solid;
+}
+
+.delete-card:hover {
+  background: red;
+}
