@@ -199,13 +199,6 @@ a:hover {
   text-align: center;
 }
 
-.nav.nav-center {
-  float: none;
-  margin: 0px;
-  /*font-size: 24px;*/
-  /*text-align: center;*/
-}
-
 .navbar-logo{
   position: absolute;
   text-align: center;
@@ -214,10 +207,11 @@ a:hover {
   width: 100%;
   font-size: 36px;
   font-family: 'Lobster';
+  z-index: -1;
 }
 
 .the-boards-index {
-  width: 100%;
-  position: absolute;
+  width: 98%;
+  /*position: absolute;*/
   text-align: center;
 }
