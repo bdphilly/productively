@@ -44,7 +44,6 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   },
 
   updateRanks: function (event) {
-    debugger
     var that = this;
     var cardIdArray = $(event.target).sortable('toArray', {
       attribute: 'id'
@@ -62,7 +61,7 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
         },
 
         error: function (resp) {
-          debugger
+          console.log(resp);
         }
       });
       rank ++;

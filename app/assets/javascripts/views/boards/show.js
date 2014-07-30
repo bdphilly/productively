@@ -9,7 +9,7 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
 
   initialize: function () {
     // this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model, 'sync', this.renderListForm);
+    // this.listenTo(this.model, 'sync', this.renderListForm);
     this.listenTo(this.model.lists(), 'add', this.addList);
     this.listenTo(this.model.lists(), 'remove', this.removeList);
   },
@@ -28,16 +28,17 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
       }
     }
 
-    if (this.subviews('.list-form').length > 0) {
-      subview = this.subviews('.list-form')[0]
-      this.removeSubview('.list-form', subview)
-    }
+    // if (this.subviews('.list-form').length > 0) {
+    //   subview = this.subviews('.list-form')[0]
+    //   this.removeSubview('.list-form', subview)
+    // }
 
     var content = this.template({
       board: this.model
     });
     this.$el.html(content);
     this.renderLists();
+    this.renderListForm();
     this.attachSubviews();
     globalview = this;
     return this;
@@ -50,9 +51,9 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
     this.$('.inner-list').sortable({
       connectWith: '.inner-list',
 
-      // cursor: 'move',
+      cursor: 'move',
 
-      // handle: '.panel-heading',
+      handle: '.panel-heading',
 
       update: function (event, ui) {
         console.log(event.target);

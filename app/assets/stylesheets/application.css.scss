@@ -45,6 +45,7 @@ a:hover {
   width: 30%;
   margin: 0 auto;
   position: relative;
+  margin-top: 100px;
 }
 
 .outer-list {
@@ -105,7 +106,7 @@ a:hover {
 }
 
 .delete-card:hover {
-  background: red;
+  background: #F24B86;
 }
 
 .delete-card {
@@ -120,7 +121,7 @@ a:hover {
 }
 
 .delete-list:hover {
-  background: red;
+  background: #F24B86;
 }
 
 .card-form {
@@ -231,9 +232,16 @@ a:hover {
 }
 
 .delete-board:hover {
-  background: red;
+  background: #F24B86;
 }
 
 .panel-heading {
   cursor: move;
+}
+
+.dragged {
+  -ms-transform: rotate(5deg); /* IE 9 */
+  -webkit-transform: rotate(5deg); /* Chrome, Safari, Opera */
+  transform: rotate(5deg);
+  box-shadow: 10px 10px 5px #888888;
 }
