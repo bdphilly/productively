@@ -5,6 +5,8 @@ Productively.Views.BoardsIndex = Backbone.CompositeView.extend ({
     'click .create-new-board': 'showForm',
   },
 
+  className: 'the-boards-index',
+
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "sync", this.renderBoardForm);

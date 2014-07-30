@@ -15,7 +15,7 @@
  */
 
 @import "font-awesome";
-
+@import url(http://fonts.googleapis.com/css?family=Lobster);
 
 
 #content {
@@ -175,7 +175,11 @@ a:hover {
 }
 
 .boards {
-  width: 1000px;
+
+  width: 60%;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .board-form {
@@ -195,3 +199,25 @@ a:hover {
   text-align: center;
 }
 
+.nav.nav-center {
+  float: none;
+  margin: 0px;
+  /*font-size: 24px;*/
+  /*text-align: center;*/
+}
+
+.navbar-logo{
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 0;
+  width: 100%;
+  font-size: 36px;
+  font-family: 'Lobster';
+}
+
+.the-boards-index {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}

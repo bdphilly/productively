@@ -1,9 +1,9 @@
 <div class="container-login">
-  <h1>Sign In</h1>
+  <h1>Log In</h1>
 
   <form action="/session" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label>Email<br>
+    <label>Username<br>
       <input name="user[email]" type="text"><br>
     </label><br>
     <label>Password<br>
@@ -11,4 +11,15 @@
     </label><br>
     <input type="submit" value="Submit" class="btn btn-primary"><br>
   </form>
+
+  <br>
+  <%= link_to "Need to sign up?", new_user_url %>
+
+  <form action="/session" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="user[email]" value="asdfasdf"><br>
+      <input type="hidden" name="user[password]" value="asdfasdf"><br>
+    <input type="submit" value="Guest User" class="btn btn-primary"><br>
+  </form>
+
 </div>
