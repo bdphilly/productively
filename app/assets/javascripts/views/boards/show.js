@@ -3,6 +3,10 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
 
   className: 'list',
 
+  events: {
+    'click .delete-board-modal': 'destroyBoard',
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.renderListForm);
@@ -86,6 +90,23 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
     );
 
     this.removeSubview('.inner-list', subview);
+  },
+
+  destroyBoard: function (event) {
+    event.preventDefault();
+    var that = this;
+    this.model.destroy({
+      success: function (){
+        that.$el.hide();
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        Productively.Routers.router.navigate("", true);
+      },
+      error: function (model, response) {
+        console.log(response)
+      }
+    });
+
   },
 
 });

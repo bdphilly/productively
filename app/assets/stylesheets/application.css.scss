@@ -215,3 +215,13 @@ a:hover {
   /*position: absolute;*/
   text-align: center;
 }
+
+.delete-board {
+  padding: 10px;
+  border-radius: 10px;
+  border: thin white solid;
+}
+
+.delete-board:hover {
+  background: red;
+}
