@@ -66,7 +66,7 @@ a:hover {
 }
 
 .list-container {
-  cursor: move;
+
 }
 
 .inner-list {
@@ -232,4 +232,8 @@ a:hover {
 
 .delete-board:hover {
   background: red;
+}
+
+.panel-heading {
+  cursor: move;
 }

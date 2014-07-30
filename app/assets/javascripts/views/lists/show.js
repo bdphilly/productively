@@ -14,7 +14,9 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
   },
 
   initialize: function () {
+    // this.collection = this.model.cards();
     this.listenTo(this.model, 'sync', this.render);
+    // this.listenTo(this.model, 'sync', this.renderCards);
     this.listenTo(this.model.cards(), 'add', this.addCard);
     this.listenTo(this.model.cards(), 'remove', this.removeCard);
   },
@@ -37,21 +39,32 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
 
     this.model.cards().each(this.addCard.bind(this));
     $('.cards').sortable({
-      connectWith: '.cards'
+      connectWith: '.cards',
     });
   },
 
   updateRanks: function (event) {
+    debugger
     var that = this;
     var cardIdArray = $(event.target).sortable('toArray', {
       attribute: 'id'
     });
-    var rank = 0;
+    var rank = 1;
 
     _.each(cardIdArray, function (cardId) {
       var id = cardId.split('-')[1];
       var card = that.model.cards().get(id);
-      card.save({ 'ord': rank });
+      
+      card.save( 'ord', 'rank',{
+        success: function (resp) {
+          console.log('success!');
+          console.log(resp);
+        },
+
+        error: function (resp) {
+          debugger
+        }
+      });
       rank ++;
     });
   },
@@ -72,10 +85,9 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
       list_id: this.model.id
     });
     cardClone.save();
-    this.model.collection.add(cardClone, { 
+    this.model.cards().add(cardClone, { 
       silent: true 
     });
-
   },
 
   removeCard: function (card) {
