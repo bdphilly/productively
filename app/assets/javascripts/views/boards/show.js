@@ -28,11 +28,17 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
       }
     }
 
+    if (this.subviews('.list-form').length > 0) {
+      subview = this.subviews('.list-form')[0]
+      this.removeSubview('.list-form', subview)
+    }
+
     var content = this.template({
       board: this.model
     });
     this.$el.html(content);
     this.renderLists();
+    // this.renderListForm();
     this.attachSubviews();
     globalview = this;
     return this;
@@ -100,7 +106,7 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
         that.$el.hide();
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        Productively.Routers.router.navigate("", true);
+        Backbone.history.navigate('', { trigger: true });
       },
       error: function (model, response) {
         console.log(response)

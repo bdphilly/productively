@@ -18,7 +18,13 @@ Productively.Views.BoardForm = Backbone.CompositeView.extend({
     this.collection.create({
       title: this.$('.title').val(),
       // ord: this.collection.length,
-    }, { wait: true });
+    }, { 
+      wait: true,
+
+      success: function (resp) {
+        Backbone.history.navigate('/boards/' + resp.id, { trigger: true });
+      }
+       });
     this.$('.title').val('');
     this.$('.title').focus();
   },

@@ -56,7 +56,7 @@ a:hover {
 
 .list-container {
   border: 1px solid white;
-  background: grey;
+  background: #A1A1A1;
   border-radius: 5px;
   width: 300px;
   margin: 10px;
@@ -74,21 +74,29 @@ a:hover {
 }
 
 .add-a-card {
-  color: blue;
+  color: #F2E101;
   margin-left: 10px;
   margin-bottom: 30px;
   display: inline-block;
 }
 
+.add-a-card:hover {
+  color: #F24B7C;
+}
+
 .panel-card {
-  background: #30E3FF;
+  background: white;
   border-radius: 15px;
+  color: black;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .panel-card:hover {
-  background: blue;
+  background: #E0E0E0;
   cursor: pointer;
 }
+
 
 .delete-card {
   border-radius: 10px;
