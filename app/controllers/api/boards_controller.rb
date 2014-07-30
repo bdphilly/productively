@@ -2,7 +2,6 @@ module Api
   class BoardsController < ApiController
     def create
       @board = current_user.boards.new(board_params)
-
       if @board.save
         render json: @board
       else

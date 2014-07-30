@@ -893,7 +893,7 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
   color: #ebebeb;
-  background-color: #2b3e50;
+  background-color: #00A3E5;
 }
 input,
 button,
@@ -910,7 +910,7 @@ a {
 a:hover,
 a:focus {
   color: #df691a;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -2803,7 +2803,7 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #df691a;
+  background-color: #F24B7C;
   border-color: transparent;
 }
 .btn-primary:hover,
@@ -2812,7 +2812,7 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #b15315;
+  background-color: #F2E101;
   border-color: rgba(0, 0, 0, 0);
 }
 .btn-primary:active,

@@ -1,16 +1,14 @@
-<h1>The Boards Index! </h1>
+<h1>Your Boards</h1>
 
-<ul class="boards">
+<div class="boards">
   <% boards.forEach(function (board) { %>
-    <li>
+    <div class="board-index-container">
       <a href="#boards/<%= board.id %>">
-        <%= board.escape('title') %>
+          <div class="index-board"><%= board.escape('title') %></div>
       </a>
-    </li>
+    </div>
   <% }) %>
-
-  <br>
-</ul>
-
-<h2>Let's create a new board!</h2>
-<div class="new-board"></div>
+  <div class="board-index-container">
+    <div class="board-form"></div>
+  </div>
+</div>
