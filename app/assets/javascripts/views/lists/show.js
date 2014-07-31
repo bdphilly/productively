@@ -54,7 +54,7 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
       var id = cardId.split('-')[1];
       var card = that.model.cards().get(id);
       
-      card.save( 'ord', 'rank',{
+      card.save( 'ord', rank,{
         success: function (resp) {
           console.log('success!');
           console.log(resp);
