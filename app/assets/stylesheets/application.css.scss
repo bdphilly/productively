@@ -89,15 +89,16 @@ a:hover {
   background: white;
   border-radius: 15px;
   color: black;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 500;
+  height: 50px;
 }
+
 
 .panel-card:hover {
   background: #E0E0E0;
   cursor: pointer;
 }
-
 
 .delete-card {
   border-radius: 10px;
@@ -244,4 +245,8 @@ a:hover {
   -webkit-transform: rotate(5deg); /* Chrome, Safari, Opera */
   transform: rotate(5deg);
   box-shadow: 10px 10px 5px #888888;
+}
+
+.cards {
+  padding-bottom: 10px;
 }

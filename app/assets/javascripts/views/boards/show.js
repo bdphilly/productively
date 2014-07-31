@@ -55,6 +55,8 @@ Productively.Views.BoardShow = Backbone.CompositeView.extend ({
 
       handle: '.panel-heading',
 
+      tolerance: 'pointer',
+
       update: function (event, ui) {
         console.log(event.target);
         var listIdArray = $(event.target).sortable('toArray', { 

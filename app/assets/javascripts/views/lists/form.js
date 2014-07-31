@@ -19,7 +19,7 @@ Productively.Views.ListForm = Backbone.CompositeView.extend ({
     this.collection.create({
       title: this.$('.title').val(),
       board_id: this.collection.board.id,
-      ord: this.collection.length,
+      ord: this.collection.length + 1,
     }, { wait: true });
     this.$('.title').val('');
     this.$('.title').focus();

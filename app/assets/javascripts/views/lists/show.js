@@ -38,8 +38,10 @@ Productively.Views.ListShow = Backbone.CompositeView.extend ({
     var that = this;
 
     this.model.cards().each(this.addCard.bind(this));
-    $('.cards').sortable({
+    this.$('.cards').sortable({
       connectWith: '.cards',
+
+      tolerance: 'pointer'
     });
   },
 
