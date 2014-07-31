@@ -1,6 +1,6 @@
 module Api
   class CardsController < ApiController
-    # before_action :require_board_member!
+    before_action :require_board_member!
 
     def index
       render json: Card.all
